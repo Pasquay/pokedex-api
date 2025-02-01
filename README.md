@@ -1,0 +1,3 @@
+This is a personal project to practice using sqlite databases with node and express to create a CRUD webapp.
+
+Its gonna be ass, its gonna look ass, but hopefully itll work... hopefully...
