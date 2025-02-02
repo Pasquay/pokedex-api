@@ -4,6 +4,8 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(bodyParser.json())
 app.set('view engine', 'ejs')
+const url = require('url')
+
 const sqlite = require('sqlite3').verbose()
 const db = new sqlite.Database('pokemon.db', (err) => {
     if (err) {
