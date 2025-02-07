@@ -4,10 +4,13 @@
         <title>PokemonDB | Add</title>
         <meta charset="utf8">
         <link rel="stylesheet" href="styles.css">
+        <script>
+        !!!FIX IT SO THAT IT WONT SEND IT IF ANY FIELD IS EMPTY
+        </script>
     </head>
     <body>
         <h1>Add Pokemon</h1>
-        <form action="/add" method="post">
+        <form action="/add" method="post" onsubmit="return validateForm()">
             <div class="container">
                 <div class="details">
                     <h2>Details:</h2>

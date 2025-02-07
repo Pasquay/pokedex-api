@@ -42,13 +42,12 @@ router.post('/', (req, res) => {
                 success: false,
                 message: err.message
             })
+        } else {
+            res.json({
+                status: 200,
+                success: true
+            })
         }
-        
-        res.json({
-            status: 200,
-            success: true,
-            message: `Pokemon added`
-        })
     })
 })
 
