@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PokemonDB | Add</title>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Add Pokemon</h1>
+        <form action="/add" method="post">
+            <div class="container">
+                <div class="details">
+                    <h2>Details:</h2>
+                    <label for="number">Number:</label><br>
+                    <input type="text" name="number" id="number"><br>
+    
+                    <label for="name">Name:</label><br>
+                    <input type="text" name="name" id="name"><br>
+    
+                    <label for="type_1">Type 1:</label><br>
+                    <input type="text" name="type_1" id="type_1"><br>
+    
+                    <label for="type_2">Type 2:</label><br>
+                    <input type="text" name="type_2" id="type_2"><br>
+    
+                    <label for="generation">Generation:</label><br>
+                    <input type="number" name="generation" id="generation"><br>
+                    
+                    <label for="legendary">Legendary:</label><br>
+                    <input type="radio" name="legendary" id="legendary-true" value="true">
+                    <label for="">True</label><br>
+                    <input type="radio" name="legendary" id="legendary-false" value="false">
+                    <label for="">False</label>
+                </div>
+                <div class="stats">
+                    <h2>Stats:</h2>
+    
+                    <label for="total">Total:</label><br>
+                    <input type="number" name="total" id="total"><br>
+    
+                    <label for="hp">HP:</label><br>
+                    <input type="number" name="hp" id="hp"><br>
+                    
+                    <label for="attack">Attack:</label><br>
+                    <input type="number" name="attack" id="attack"><br>
+    
+                    <label for="defense">Defense:</label><br>
+                    <input type="number" name="defense" id="defense"><br>
+    
+                    <label for="sp_atk">Sp. Atk:</label><br>
+                    <input type="number" name="sp_atk" id="sp_atk"><br>
+    
+                    <label for="sp_def">Sp. Def:</label><br>
+                    <input type="number" name="sp_def" id="sp_def"><br>
+    
+                    <label for="speed">Speed:</label><br>
+                    <input type="number" name="speed" id="speed"><br>
+                </div>
+            </div>
+            <input type="submit" id="submit-button" value="Submit">
+        </form>
+    </body>
+</html>

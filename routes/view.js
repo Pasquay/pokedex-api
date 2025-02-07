@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const url = require('url')
-const sqlite = require('sqlite3').verbose();
+const sqlite = require('sqlite3').verbose()
 
-const db = new sqlite.Database('pokemon.db');
+const db = new sqlite.Database('pokemon.db')
 let sql
             
 
