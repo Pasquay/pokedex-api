@@ -10,7 +10,7 @@ const db = new sqlite.Database('pokemon.db', (err) => {
         })
     }
 })
-let sql, html
+let sql
 
 router.get('/', (req, res) => {
     res.render('add')

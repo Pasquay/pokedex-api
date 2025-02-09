@@ -74,7 +74,7 @@ router.get('/', (req, res) => {
 
             html += `</table>`
 
-            return res.send(html);
+            return res.send(html)
         })
     } catch (err) {
         return res.json({
