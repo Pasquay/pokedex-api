@@ -5,7 +5,24 @@
         <meta charset="utf8">
         <link rel="stylesheet" href="styles.css">
         <script>
-        !!!FIX IT SO THAT IT WONT SEND IT IF ANY FIELD IS EMPTY
+            function validateForm(){
+                const inputs = document.querySelectorAll(`
+                input[type='text']:not(#type_2), input[type='number']`);
+                for(const input of inputs){
+                    if(!input.value.trim()){
+                        alert('Please fill out all fields');
+                        return false;
+                    }
+                }
+
+                const legendarySelection = document.querySelector(`input[name='legendary']:checked`);
+                if (!legendarySelection){
+                    alert('Please fill out all fields');
+                    return false;
+                }
+
+                return true;
+            }
         </script>
     </head>
     <body>

@@ -19,11 +19,14 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     sql = `INSERT INTO pokemon (Number, Name, Type_1, Type_2, Total, HP, Attack, Defense, Sp_Atk, Sp_Def, Speed, Generation, Legendary)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
-    const params = [
+    
+        const type2Value = req.body.type_2.trim() === '' ? null : req.body.type_2;
+    
+        const params = [
         req.body.number,
         req.body.name,
         req.body.type_1,
-        req.body.type_2,
+        type2Value,
         req.body.total,
         req.body.hp,
         req.body.attack,
