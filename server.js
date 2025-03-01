@@ -17,17 +17,19 @@ const db = new sqlite.Database('pokemon.db', (err) => {
     }
 })
 
+let html;
+
 app.get('/', (req, res) => {
-    res.send(`Homepage <br>
-    Homepage welcome text<br>
-    Buttons row 1 for:<br>
-    Add pokemon<br>
-    Edit pokemon<br>
-    Delete pokemon<br>
-    Buttons row 2 for:<br>
-    Search<br>
-    View list -> /view<br>
-    View entry #1 -> /view/:id`)
+    html = `
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+        <h1>POKEDEX</h1>
+        <a href="/view"><button>VIEW</button></a><br>
+        <a href="/add"><button>ADD</button></a><br>
+        <a href="/update"><button>UPDATE</button></a><br>
+        <a href="/delete"><button>DELETE</button></a><br>
+    </div>`
+
+    res.send(html)
 })
 
 

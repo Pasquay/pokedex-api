@@ -24,6 +24,15 @@
         </script>
     </head>
     <body>
+        <div class="nav-bar">
+            <h1>POKEDEX</h1>
+            <div class="nav-buttons" style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                <a href="/view"><button style="margin: 0 4px; padding: 0.4rem 1rem;">VIEW</button></a><br>
+                <a href="/add"><button style="margin: 0 4px; padding: 0.4rem 1rem;">ADD</button></a><br>
+                <a href="/update"><button style="margin: 0 4px; padding: 0.4rem 1rem;">UPDATE</button></a><br>
+                <a href="/delete"><button style="margin: 0 4px; padding: 0.4rem 1rem;">DELETE</button></a><br>
+            </div>
+        </div>
         <h1>Update Pokemon</h1>
         <form action="/update/updateForm/<%= name %>" method="post" onsubmit="return validateForm()">
             <div class="container">
@@ -64,9 +73,9 @@
                     <input type="number" name="generation" id="generation"><br><br>
 
                     <label for="legendary">Legendary: </label>
-                    <input type="radio" name="legendary" id="legendary-true" value="true">
+                    <input type="radio" name="legendary" id="legendary-true" value="True">
                     <label for="legendary-true">True</label>
-                    <input type="radio" name="legendary" id="legendary-false" value="false">
+                    <input type="radio" name="legendary" id="legendary-false" value="False">
                     <label for="legendary-false">False</label><br><br>
                     
                     <h3 id="header-stats">STATS</h3>

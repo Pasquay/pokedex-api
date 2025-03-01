@@ -4,7 +4,7 @@ const url = require('url')
 const sqlite = require('sqlite3').verbose()
 
 const db = new sqlite.Database('pokemon.db')
-let sql
+let sql, html
             
 
 router.get('/', (req, res) => {
@@ -35,7 +35,18 @@ router.get('/', (req, res) => {
                 })
             }
 
-            let html = `
+            html = `
+                <div class="nav-bar">
+                    <h1 style="text-align: center;">POKEDEX</h1>
+                    <div class="nav-buttons" style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin: 1rem;">
+                        <a href="/view"><button style="margin: 0 4px; padding: 0.4rem 1rem;">VIEW</button></a><br>
+                        <a href="/add"><button style="margin: 0 4px; padding: 0.4rem 1rem;">ADD</button></a><br>
+                        <a href="/update"><button style="margin: 0 4px; padding: 0.4rem 1rem;">UPDATE</button></a><br>
+                        <a href="/delete"><button style="margin: 0 4px; padding: 0.4rem 1rem;">DELETE</button></a><br>
+                    </div>
+                </div>`
+
+            html += `
                 <table border='1'>
                     <tr>
                         <th>Number</th>
