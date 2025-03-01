@@ -11,6 +11,25 @@ const db = new sqlite.Database('pokemon.db', (err) => {
     }
 })
 
+router.post('/:name', (req, res) => {
+    sql = `DELETE FROM pokemon WHERE Name = '${req.params.name}'`
+
+    db.run(sql, (err) => {
+        if (err) {
+            return res.json({
+                status: 400,
+                success: false
+            })
+        }
+
+        return res.json({
+            status: 200,
+            success: true,
+            message: `Deleted Pokemon: ${req.params.name}`
+        })
+    })
+})
+
 router.get('/', (req, res) => {
     sql = `SELECT * FROM pokemon ORDER BY Number`
     try {
@@ -48,16 +67,45 @@ router.get('/', (req, res) => {
                         <th>Generation</th>
                         <th>Legendary</th>
                     </tr>`
+
             rows.forEach(row => {
                 html += 
                     `<tr>
-                        <td>` //continue here
+                        <td>
+                            <form action='/delete/${row.Name}' method='POST'>
+                                <button>
+                                    DELETE
+                                </button>
+                            </form>
+                        </td>
+                        <td>${row.Number}</td>
+                        <td>${row.Name}</td>
+                        <td>${row.Type_1}</td>
+                        <td>${row.Type_2}</td>
+                        <td>${row.Total}</td>
+                        <td>${row.HP}</td>
+                        <td>${row.Attack}</td>
+                        <td>${row.Defense}</td>
+                        <td>${row.Sp_Atk}</td>
+                        <td>${row.Sp_Def}</td>
+                        <td>${row.Speed}</td>
+                        <td>${row.Generation}</td>
+                        <td>${row.Legendary}</td>
+                    </tr>`
             })
-        })
-    } catch {
 
+            html += `</table>`
+
+            return res.send(html)
+        })
+    } catch (err) {
+        return res.json({
+            status: 400,
+            success: false
+        })
     }
 })
+
 
 
 module.exports = router;

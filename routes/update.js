@@ -247,7 +247,7 @@ router.get('/', (req, res) => {
             rows.forEach(row => {
                 html += 
                     `<tr>
-                        <td><a href='/update/${row.Number}'><button">Edit</button></a></td>
+                        <td><a href='/update/${row.Number}'><button>EDIT</button></a></td>
                         <td>${row.Number}</td>
                         <td>${row.Name}</td>
                         <td>${row.Type_1}</td>
