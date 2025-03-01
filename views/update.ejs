@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pokemon DB | Updating <%= name %></title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/update.css">
+        <script>
+            function validateForm(){
+                const inputs = document.querySelectorAll(`
+                input`);
+                let filled = 0; 
+                for(const input of inputs){
+                    if(input.value.trim()){
+                        filled++;
+                    }
+                }
+                if(filled === 0){
+                    alert('Please fill out at least one field');
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Update Pokemon</h1>
+        <form action="/update/updateForm/<%= name %>" method="post" onsubmit="return validateForm()">
+            <div class="container">
+                <div class="original-values">
+                    <h2>Original Values</h2>
+                    <h3>DETAILS</h3>
+                    <p>Number: <%= number %></p>
+                    <p>Name: <%= name %></p>
+                    <p>Type 1: <%=  type_1 %></p>
+                    <p>Type 2: <%= type_2 %></p>
+                    <p>Generation: <%= generation %></p>
+                    <p>Legendary: <%= legendary %></p>
+                    <h3>STATS</h3>
+                    <p>Total: <%= total %></p>
+                    <p>HP: <%= hp %></p>
+                    <p>Attack: <%= attack %></p>
+                    <p>Defense: <%= defense%></p>
+                    <p>Sp. Atk: <%= sp_atk %></p>
+                    <p>Sp. Def: <%= sp_def %></p>
+                    <p>Speed: <%= speed%></p>
+                </div>
+                <div class="new-values">
+                    <h2>New Values</h2>
+                    <h3>DETAILS</h3>
+                    <label for="number">Number: </label>
+                    <input type="text" name="number" id="number"><br><br>
+
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name"><br><br>
+
+                    <label for="type_1">Type 1: </label>
+                    <input type="text" name="type_1" id="type_1"><br><br>
+
+                    <label for="type_2">Type 2: </label>
+                    <input type="text" name="type_2" id="type_2"><br><br>
+
+                    <label for="generation">Generation: </label>
+                    <input type="number" name="generation" id="generation"><br><br>
+
+                    <label for="legendary">Legendary: </label>
+                    <input type="radio" name="legendary" id="legendary-true" value="true">
+                    <label for="legendary-true">True</label>
+                    <input type="radio" name="legendary" id="legendary-false" value="false">
+                    <label for="legendary-false">False</label><br><br>
+                    
+                    <h3 id="header-stats">STATS</h3>
+                    <label for="total">Total: </label>
+                    <input type="number" name="total" id="total"><br><br>
+
+                    <label for="hp">HP: </label>
+                    <input type="number" name="hp" id="hp"><br><br>
+
+                    <label for="attack">Attack: </label>
+                    <input type="number" name="attack" id="attack"><br><br>
+
+                    <label for="defense">Defense: </label>
+                    <input type="number" name="defense" id="defense"><br><br>
+
+                    <label for="sp_atk">Sp. Atk: </label>
+                    <input type="number" name="sp_atk" id="sp_atk"><br><br>
+
+                    <label for="sp_def">Sp. Def: </label>
+                    <input type="number" name="sp_def" id="sp_def"><br><br>
+
+                    <label for="speed">Speed: </label>
+                    <input type="number" name="speed" id="speed"><br><br>
+                </div>
+            </div>
+            <input type="submit" value="Submit" id="submit-button">
+        </form>
+    </body>
+</html>

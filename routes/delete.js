@@ -1,17 +1,62 @@
 const express = require('express')
-const router = express.Router();
-
+const router = express.Router()
+const url = require('url')
+const sqlite = require('sqlite3').verbose()
+const db = new sqlite.Database('pokemon.db', (err) => {
+    if (err) {
+        return res.json({
+            status: 400,
+            success: false
+        })
+    }
+})
 
 router.get('/', (req, res) => {
-    res.send(`Search to find what pokemon you want to delete with a list of results<br>
-    Buttons row 1 for:<br>
-    Add pokemon<br>
-    Edit pokemon<br>
-    Delete pokemon<br>
-    Buttons row 2 for:<br>
-    Search<br>
-    View list<br>
-    View entry #1`)
+    sql = `SELECT * FROM pokemon ORDER BY Number`
+    try {
+        db.all(sql, (err, rows) => {
+            if (err) {
+                return res.json({
+                    status: 400,
+                    success: false
+                })
+            }
+
+            if (rows.length < 1) {
+                return res.json({
+                    status: 400,
+                    success: false,
+                    error:  `Pokedex is empty!`
+                })
+            }
+
+            html = 
+                `<table border =1>
+                    <tr>
+                        <th>DELETE</th>
+                        <th>Number</th>
+                        <th>Name</th>
+                        <th>Type 1</th>
+                        <th>Type 2</th>
+                        <th>Total</th>
+                        <th>HP</th>
+                        <th>Attack</th>
+                        <th>Defense</th>
+                        <th>Sp. Atk</th>
+                        <th>Sp. Def</th>
+                        <th>Speed</th>
+                        <th>Generation</th>
+                        <th>Legendary</th>
+                    </tr>`
+            rows.forEach(row => {
+                html += 
+                    `<tr>
+                        <td>` //continue here
+            })
+        })
+    } catch {
+
+    }
 })
 
 

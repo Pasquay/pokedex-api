@@ -6,6 +6,7 @@ app.use(bodyParser.json())
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
 const url = require('url')
+const path = require('path')
 
 const sqlite = require('sqlite3').verbose()
 const db = new sqlite.Database('pokemon.db', (err) => {
